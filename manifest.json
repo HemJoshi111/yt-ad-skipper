@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "YT Ad Skipper",
+  "version": "1.0.0",
+  "description": "Blocks trackers and automatically skips YouTube video ads.",
+  "permissions": ["declarativeNetRequest"],
+  "host_permissions": ["*://*.youtube.com/*"],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["scripts/content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
